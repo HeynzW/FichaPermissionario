@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+    <style>
+
+    /* inicio formulario */
+
+    .conteinerPai{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+.boxFilho{
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 6px;
+  padding: 30px;
+  margin: 0 15px;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.boxFilho .titulobox{
+  position: relative;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+.boxFilho .titulobox::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 3px;
+  width: 27px;
+  border-radius: 8px;
+  background-color: #416D19;
+}
+.boxFilho form{
+  position: relative;
+  margin-top: 16px;
+  min-height: 500px;
+  background-color: #fff;
+  overflow: scroll;
+}
+.boxFilho form::-webkit-scrollbar{
+  display: none;
+}
+.boxFilho form .form{
+  position: absolute;
+  background-color: #fff;
+}
+.boxFilho form .title{
+  display: block;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 6px 0;
+  color: #333;
+}
+.boxFilho form .campos{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+form .campos .input-Campo{
+  display: flex;
+  width: calc(100% / 3 - 15px);
+  flex-direction: column;
+}
+.input-Campo label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #2e2e2e;
+}
+.input-Campo input{
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  padding: 0 15px;
+  height: 42px;
+  margin: 8px 0;
+}
+.input-Campo input{
+  box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+.input-Campo input[type="date"]{
+  color: #707070;
+}
+.input-Campo input[type="date"]:valid{
+  color: #333;
+}
+
+/* inicio select */
+
+.input-Campo select{
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #fff;
+  color: #2e2e2e;
+}
+.input-Campo select{
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  padding: 0 15px;
+  height: 42px;
+  margin: 8px 0;
+}
+.input-Campo select:is(:focus, :valid){
+  box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+.input-Campo select{
+  color: #707070;
+}
+.input-Campo select:valid{
+  color: #333;
+}
+
+/* fim select */
+
+/* fim formulario */
+
+/*Inicio button enviar doc gov.br*/
+
+.boxFilho form .assingovbr{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  max-width: 200px;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 5px;
+  margin: 25px 0;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+.boxFilho form .assin-link{
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #fff;
+  border: 0 none;
+  text-decoration: none;
+}
+.butaoGov{
+  border: none;
+  background: none;
+}
+
+form .assin-link{
+  display: flex;
+  align-items: center;
+  
+}
+form.assin-link{
+  margin-right: 24px;
+}
+form  .assin-link{
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #416D19;
+  
+}
+form .assin-link:hover{
+  background-color: #03c242;
+}
+/*Fim button enviar doc gov.br*/
+
+/*Inicio buttons de resetar e gerar pdf*/
+
+.boxFilho form .buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  max-width: 200px;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #fff;
+
+  border-radius: 5px;
+  margin: 25px 0;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+.boxFilho form .resetBtn,
+.boxFilho form .gerarPdfBtn{
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #fff;
+  border: 0 none;
+}
+
+
+form .buttons{
+  display: flex;
+  align-items: center;
+  
+}
+form .buttons , .resetBtn{
+  margin-right: 24px;
+}
+form  .resetBtn , .gerarPdfBtn{
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #416D19;
+  
+}
+form .resetBtn:hover, 
+form .gerarPdfBtn:hover{
+  background-color: #03c242;
+}
+
+/*Fim buttons de resetar e gerar pdf*/
+/* Fim button */
+
+
+/*Inicio*/
+
+@media (max-width: 750px) {
+
+.open {
+  display: block;
+}
+form .campos .input-Campo{
+  display: flex;
+  width: calc(100% / 2 - 15px);
+  flex-direction: column;
+}
+
+}
+
+@media (max-width: 550px){
+form .campos .input-Campo{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+}
+
+/*Fim*/
+
+    </style>
+
+</head>
+<body>
+
+<div class="conteinerPai">
+    <div class="boxFilho">
+
+        <div class="titulobox">CADASTRO</div>
+
+    <form id="formPermisComSoc">
+
+        <!-- INFORMÇÕES DO PERMISSIONARIO -->
+
+        <div class="form 1">
+        <div class="detalhesPessoais">
+        <span class="title">INFORMÇÕES DO PERMISSIONARIO</span>
+
+        <div class="campos">
+
+        <div class="input-Campo">
+        <label for="permissao">PERMISSÃO:</label>
+        <select id="permissao" name="permissao">
+            <option value="(-)">ESCOLHA UMA OPÇÃO</option>
+            <option value="PRAIA">PRAIA</option>
+            <option value="NÁUTICA">NÁUTICA</option>
+            <option value="PESCA">PESCA</option>
+        </select>
+        </div>
+
+        <div class="input-Campo"></div>
+        <div class="input-Campo"></div>
+
+        <div class="input-Campo">
+        <label for="nomeTitular">NOME DO TITULAR:</label>
+        <input type="text" id="nomeTitular" name="nomeTitular" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="dataNascimento">DATA DE NASCIMENTO:</label>
+        <input type="date" id="dataNascimento" name="dataNascimento"><br><br>
+        </div>
+
+        <div class="input-Campo">
+        <label for="estadoCivil">ESTADO CIVIL:</label>
+        <select name="estadoCivil" id="estadoCivil" required>
+            <option value="X">ESCOLHA UMA OPÇÃO</option>
+            <option value="SOLTEIRO(A)">SOLTEIRO(A)</option>
+            <option value="CASADO(A)">CASADO(A)</option>
+            <option value="DIVORCIADO(A)">DIVORCIADO(A)</option>
+            <option value="VIÚVO(A)">VIÚVO(A)</option>
+            <option value="SEPARADO(A)">SEPARADO(A)</option>
+        </select>
+        </div>
+
+        <div class="input-Campo">
+        <label for="militar">MILITAR:</label>
+        <select id="militar" name="militar">
+            <option value="(-)">ESCOLHA UMA OPÇÃO</option>
+            <option value="SIM">SIM</option>
+            <option value="NÃO">NÃO</option>
+        </select>
+        </div>
+
+        <div class="input-Campo">
+        <label for="postoGradTitular">POST/GRAD:</label>
+        <input type="text" id="postoGradTitular" name="postoGradTitular" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="forca">FORÇA:</label>
+        <input type="text" id="forca" name="forca" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="nrIdentidade">Nr IDENTIDADE:</label>
+        <input type="text" id="nrIdentidade" name="nrIdentidade" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="orgExp">ÓRG EXP:</label>
+        <input type="text" id="orgExp" name="orgExp" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="dataExp">DATA EXP:</label>
+        <input type="date" id="dataExp" name="dataExp" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="cpf">CPF:</label>
+        <input id="cpf" type="text"  name="cpf" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        </div>
+
+        <!-- Endereço residencial -->
+
+        <div class="formUm">
+        <div class="detalhesPessoais">
+        <span class="title">ENDEREÇO RESIDENCIAL</span>
+
+        <div class="campos">
+
+        
+        <div class="input-Campo">
+        <label for="logradouroResidencial">LOGRADOURO</label>
+        <input type="text" id="logradouroResidencial" name="logradouroResidencial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="nrResidencial">NR</label>
+        <input type="text" id="nrResidencial" name="nrResidencial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="complementoResidencial">COMPLEMENTO</label>
+        <input type="text" id="complementoResidencial" name="complementoResidencial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="bairroResidencial">BAIRRO</label>
+        <input type="text" id="bairroResidencial" name="bairroResidencial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="cidadeResidencial">CIDADE</label>
+        <input type="text" id="cidadeResidencial" name="cidadeResidencial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="ufResidencial">UF</label>
+        <input type="text" id="ufResidencial" name="ufResidencial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="tellFixoResidencial">TEL. FIXO C/DDD</label>
+        <input type="text" id="tellFixoResidencial" name="tellFixoResidencial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="tellCelularResidencial">TEL. CELULAR C/DDD</label>
+        <input type="text" id="tellCelularResidencial" name="tellCelularResidencial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+        <label for="emailResidencial">E-MAIL</label>
+        <input type="text" id="emailResidencial" name="emailResidencial" required>
+        </div>
+
+        </div>
+
+         <!-- Endereço COMERCIAL -->
+
+         <div class="formUm">
+         <div class="detalhesPessoais">
+         <span class="title">ENDEREÇO COMERCIAL</span>
+ 
+         <div class="campos">
+        
+        <div class="input-Campo">
+         <label for="nomeEmpresaComercial">NOME DA EMPRESA</label>
+         <input type="text" id="nomeEmpresaComercial" name="nomeEmpresaComercial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="logradouroComercial">LOGRADOURO</label>
+         <input type="text" id="logradouroComercial" name="logradouroComercial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="nrComercial">NR</label>
+         <input type="text" id="nrComercial" name="nrComercial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="complementoComercial">COMPLEMENTO</label>
+         <input type="text" id="complementoComercial" name="complementoComercial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="bairroComercial">BAIRRO</label>
+         <input type="text" id="bairroComercial" name="bairroComercial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+         
+        <div class="input-Campo">
+         <label for="cidadeComercial">CIDADE</label>
+         <input type="text" id="cidadeComercial" name="cidadeComercial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="ufComercial">UF</label>
+         <input type="text" id="ufComercial" name="ufComercial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="tellFixoComercial">TEL. FIXO</label>
+         <input type="text" id="tellFixoComercial" name="tellFixoComercial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="tellCelularComercial">TEL. CELULAR C/DDD:</label>
+         <input type="text" id="tellCelularComercial" name="tellCelularComercial" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="emailComercial">E-MAIL</label>
+         <input type="text" id="emailComercial" name="emailComercial">
+        </div>
+
+         </div>
+
+        <!-- INFORMAÇÕES DO ABONADOR -->
+
+         <div class="formUm">
+         <div class="detalhesPessoais">
+         <span class="title">INFORMAÇÕES DO ABONADOR</span>
+ 
+         <div class="campos">
+
+        <div class="input-Campo">    
+         <label for="nomeAbonador">NOME</label>
+         <input type="text" id="nomeAbonador" name="nomeAbonador" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="postoGradAbonador">POST/GRAD</label>
+         <input type="text" id="postoGradAbonador" name="postoGradAbonador" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="omAbonador">OM</label>
+         <input type="text" id="omAbonador" name="omAbonador" required>
+        </div>
+
+         </div>
+
+         <!-- Endereço Residencial Abonador -->
+          
+         <div class="formUm">
+         <div class="detalhesPessoais">
+         <span class="title">ENDEREÇO RESIDENCIAL</span>
+ 
+         <div class="campos">
+         
+        <div class="input-Campo">
+         <label for="logradouroAbonador">LOGRADOURO</label>
+         <input type="text" id="logradouroAbonador" name="logradouroAbonador" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="nrAbonador">NR</label>
+         <input type="text" id="nrAbonador" name="nrAbonador" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="complementoAbonador">COMPLEMENTO</label>
+         <input type="text" id="complementoAbonador" name="complementoAbonador" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="bairroAbonador">BAIRRO</label>
+         <input type="text" id="bairroAbonador" name="bairroAbonador" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+         
+        <div class="input-Campo">
+         <label for="cidadeAbonador">CIDADE</label>
+         <input type="text" id="cidadeAbonador" name="cidadeAbonador" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="ufAbonador">UF</label>
+         <input type="text" id="ufAbonador" name="ufAbonador" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="tellFixoAbonador">TEL. FIXO</label>
+         <input type="text" id="tellFixoAbonador" name="tellFixoAbonador" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="tellCelularAbonador">TEL. CELULAR C/DDD</label>
+         <input type="text" id="tellCelularAbonador" name="tellCelularAbonador" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+        <div class="input-Campo">
+         <label for="emailAbonador">E-MAIL</label>
+         <input type="text" id="emailAbonador" name="emailAbonador">
+        </div>
+
+         </div>
+         <!-- MOTIVO DA CONCESSÃO -->
+
+        <div class="input-Campo">
+         <label for="motivoConcessao">MOTIVO DA CONCESSÃO</label>
+         <input type="text" id="motivoConcessao" name="motivoConcessao" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+        </div>
+
+
+         <!-- Dependentes -->
+
+         <div class="formUm">
+         <div class="detalhesPessoais">
+         <span class="title">INFORMAÇÕES DO DEPENDENTE</span>
+
+            <!-- dependente um (1) -->
+
+            <div class="formUm">
+            <div class="detalhesPessoais">
+            <span class="title">DEPENDENTE NR 1</span>
+    
+            <div class="campos">
+        
+            <div class="input-Campo">
+             <label for="parentescoDependenteUm">PARENTESCO</label>
+             <input type="text" id="parentescoDependenteUm" name="parentescoDependenteUm" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+             <label for="nomeDependenteUm">NOME</label>
+             <input type="text" id="nomeDependenteUm" name="nomeDependenteUm" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+             <label for="dataNascimentoDependenteUm">DATA DE NASCIMENTO</label>
+             <input type="date" id="dataNascimentoDependenteUm" name="dataNascimentoDependenteUm" >
+            </div>
+
+            <div class="input-Campo">
+             <label for="cpfDependenteUm">CPF</label>
+             <input type="text" id="cpfDependenteUm" name="cpfDependenteUm">
+            </div>
+
+            <div class="input-Campo">
+             <label for="nrDependenteUm">NR IDENTIDADE</label>
+             <input type="text" id="nrDependenteUm" name="nrDependenteUm">
+            </div>
+
+            <div class="input-Campo">
+             <label for="orgExpDependenteUm">ORG EXP</label>
+             <input type="text" id="orgExpDependenteUm" name="orgExpDependenteUm" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+             <label for="dataExpDependenteUm">DATA EXP</label>
+             <input type="date" id="dataExpDependenteUm" name="dataExpDependenteUm">
+            </div>
+
+            </div>
+
+            <!-- dependente dois (2) -->
+
+            <div class="formUm">
+            <div class="detalhesPessoais">
+            <span class="title">DEPENDENTE NR 2</span>
+    
+            <div class="campos">
+
+            <div class="input-Campo">
+             <label for="parentescoDependenteDois">PARENTESCO</label>
+             <input type="text" id="parentescoDependenteDois" name="parentescoDependenteDois" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+             <label for="nomeDependenteDois">NOME</label>
+             <input type="text" id="nomeDependenteDois" name="nomeDependenteDois" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+             <label for="dataNascimentoDependenteDois">DATA DE NASCIMENTO</label>
+             <input type="date" id="dataNascimentoDependenteDois" name="dataNascimentoDependenteDois">
+            </div>
+
+            <div class="input-Campo">
+             <label for="cpfDependenteDois">CPF</label>
+             <input type="text" id="cpfDependenteDois" name="cpfDependenteDois">
+            </div>
+
+            <div class="input-Campo">
+             <label for="nrDependenteDois">NR IDENTIDADE</label>
+             <input type="text" id="nrDependenteDois" name="nrDependenteDois">
+            </div>
+
+            <div class="input-Campo">
+             <label for="orgExpDependenteDois">ORG EXP</label>
+             <input type="text" id="orgExpDependenteDois" name="orgExpDependenteDois" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+             <label for="dataExpDependenteDois">DATA EXP</label>
+             <input type="date" id="dataExpDependenteDois" name="dataExpDependenteDois">
+            </div>
+
+            </div>
+
+            <!-- dependente Treis (3) -->
+
+            
+            <div class="formUm">
+                <div class="detalhesPessoais">
+                <span class="title">DEPENDENTE NR 3</span>
+        
+                <div class="campos">
+        
+            <div class="input-Campo">
+             <label for="parentescoDependenteTreis">PARENTESCO</label>
+             <input type="text" id="parentescoDependenteTreis" name="parentescoDependenteTreis" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+             <label for="nomeDependenteTreis">NOME</label>
+             <input type="text" id="nomeDependenteTreis" name="nomeDependenteTreis" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+             <label for="dataNascimentoDependenteTreis">DATA DE NASCIMENTO</label>
+             <input type="date" id="dataNascimentoDependenteTreis" name="dataNascimentoDependenteTreis">
+            </div>
+
+            <div class="input-Campo">
+             <label for="cpfDependenteTreis">CPF</label>
+             <input type="text" id="cpfDependenteTreis" name="cpfDependenteTreis">
+            </div>
+
+            <div class="input-Campo">
+             <label for="nrDependenteTreis">NR IDENTIDADE</label>
+             <input type="text" id="nrDependenteTreis" name="nrDependenteTreis">
+            </div>
+
+            <div class="input-Campo">
+             <label for="orgExpDependenteTreis">ORG EXP</label>
+             <input type="text" id="orgExpDependenteTreis" name="orgExpDependenteTreis" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+             <label for="dataExpDependenteTreis">DATA EXP</label>
+             <input type="date" id="dataExpDependenteTreis" name="dataExpDependenteTreis">
+            </div>
+            
+            </div>
+
+            <!-- dependente Quatro (4) -->
+             
+            <div class="formUm">
+                <div class="detalhesPessoais">
+                <span class="title">DEPENDENTE NR 4</span>
+        
+                <div class="campos">
+        
+            <div class="input-Campo">
+             <label for="parentescoDependenteQuatro">PARENTESCO</label>
+             <input type="text" id="parentescoDependenteQuatro" name="parentescoDependenteQuatro" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required></div>
+
+            <div class="input-Campo">
+             <label for="nomeDependenteQuatro">NOME</label>
+             <input type="text" id="nomeDependenteQuatro" name="nomeDependenteQuatro" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+             <label for="dataNascimentoDependenteQuatro">DATA DE NASCIMENTO</label>
+             <input type="date" id="dataNascimentoDependenteQuatro" name="dataNascimentoDependenteQuatro">
+            </div>
+
+            <div class="input-Campo">
+             <label for="cpfDependenteQuatro">CPF</label>
+             <input type="text" id="cpfDependenteQuatro" name="cpfDependenteQuatro">
+            </div>
+
+            <div class="input-Campo">
+             <label for="nrDependenteQuatro">NR IDENTIDADE</label>
+             <input type="text" id="nrDependenteQuatro" name="nrDependenteQuatro">
+            </div>
+
+            <div class="input-Campo">
+            <label for="orgExpDependenteQuatro">ORG EXP</label>
+            <input type="text" id="orgExpDependenteQuatro" name="orgExpDependenteQuatro" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+            <label for="dataExpDependenteQuatro">DATA EXP</label>
+            <input type="date" id="dataExpDependenteQuatro" name="dataExpDependenteQuatro">
+            </div>
+
+            </div>
+
+            <!-- dependente Cinco (5) -->
+
+                         
+            <div class="formUm">
+                <div class="detalhesPessoais">
+                <span class="title">DEPENDENTE NR 5</span>
+        
+                <div class="campos">
+
+            <div class="input-Campo">
+             <label for="parentescoDependenteCinco">PARENTESCO</label>
+             <input type="text" id="parentescoDependenteCinco" name="parentescoDependenteCinco" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+            <label for="nomeDependenteCinco">NOME</label>
+            <input type="text" id="nomeDependenteCinco" name="nomeDependenteCinco" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+             <label for="dataNascimentoDependenteCinco">DATA DE NASCIMENTO</label>
+             <input type="date" id="dataNascimentoDependenteCinco" name="dataNascimentoDependenteCinco">
+            </div>
+
+            <div class="input-Campo">
+             <label for="cpfDependenteCinco">CPF</label>
+             <input type="text" id="cpfDependenteCinco" name="cpfDependenteCinco">
+            </div>
+
+            <div class="input-Campo">
+             <label for="nrDependenteCinco">NR IDENTIDADE</label>
+             <input type="text" id="nrDependenteCinco" name="nrDependenteCinco">
+            </div>
+
+            <div class="input-Campo">
+            <label for="orgExpDependenteCinco">ORG EXP</label>
+            <input type="text" id="orgExpDependenteCinco" name="orgExpDependenteCinco" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
+            </div>
+
+            <div class="input-Campo">
+             <label for="dataExpDependenteCinco">DATA EXP</label>
+             <input type="date" id="dataExpDependenteCinco" name="dataExpDependenteCinco">
+            </div>
+
+            </div>
+            <br>
+
+            &emsp;
+        <button class="gerarPdfBtn" type="button" onclick="gerarPDF()">Gerar PDF</button> &emsp;&emsp;
+        <button class="butaoGov"><a class="assin-link" href="https://www.gov.br/pt-br">GovBr</a></button> &emsp;&emsp;
+        <button type="reset" class="gerarPdfBtn">Reset</button>
+            <br><br>
+      </form>
+
+      </div>
+</div>
+
+
+<!-- Script -->
+ <!-- Mascara de input -->
+<!-- Inclua o jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Inclua o plugin de máscara jQuery Mask Plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+ <!-- Mascara de input fim -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+        async function gerarPDF() {
+            // Importando jsPDF
+            const { jsPDF } = window.jspdf;
+
+            // INFORMÇÕES DO PERMISSIONARIO
+            const permissao = document.getElementById('permissao').value;
+            const nomeTitular = document.getElementById('nomeTitular').value;
+            const dataNascimento = document.getElementById('dataNascimento').value;
+            const estadoCivil = document.getElementById('estadoCivil').value;
+            const militar = document.getElementById('militar').value;
+            const postoGradTitular = document.getElementById('postoGradTitular').value;
+            const forca = document.getElementById('forca').value;
+            const nrIdentidade = document.getElementById('nrIdentidade').value;
+            const orgExp = document.getElementById('orgExp').value;
+            const dataExp = document.getElementById('dataExp').value;
+            const cpf = document.getElementById('cpf').value;
+
+            // Endereço residencial
+            const logradouroResidencial = document.getElementById('logradouroResidencial').value;
+            const nrResidencial = document.getElementById('nrResidencial').value;
+            const complementoResidencial = document.getElementById('complementoResidencial').value;
+            const bairroResidencial = document.getElementById('bairroResidencial').value;
+            const cidadeResidencial = document.getElementById('cidadeResidencial').value;
+            const ufResidencial = document.getElementById('ufResidencial').value;
+            const tellFixoResidencial = document.getElementById('tellFixoResidencial').value;
+            const tellCelularResidencial = document.getElementById('tellCelularResidencial').value;
+            const emailResidencial = document.getElementById('emailResidencial').value;
+
+            // Endereço Comercial
+
+            const nomeEmpresaComercial = document.getElementById('nomeEmpresaComercial').value;
+            const logradouroComercial = document.getElementById('logradouroComercial').value;
+            const nrComercial = document.getElementById('nrComercial').value;
+            const complementoComercial = document.getElementById('complementoComercial').value;
+            const bairroComercial = document.getElementById('bairroComercial').value;
+            const cidadeComercial = document.getElementById('cidadeComercial').value;
+            const ufComercial = document.getElementById('ufComercial').value;
+            const tellFixoComercial = document.getElementById('tellFixoComercial').value;
+            const tellCelularComercial = document.getElementById('tellCelularComercial').value;
+            const emailComercial = document.getElementById('emailComercial').value;
+
+            // INFORMAÇÕES DO ABONADOR
+
+            const nomeAbonador = document.getElementById('nomeAbonador').value;
+            const postoGradAbonador = document.getElementById('postoGradAbonador').value;
+            const omAbonador = document.getElementById('omAbonador').value;
+
+            // ENDEREÇO RESIDENCIAL ABONADOR
+
+            const logradouroAbonador = document.getElementById('logradouroAbonador').value;
+            const nrAbonador = document.getElementById('nrAbonador').value;
+            const complementoAbonador = document.getElementById('complementoAbonador').value;
+            const bairroAbonador = document.getElementById('bairroAbonador').value;
+            const cidadeAbonador = document.getElementById('cidadeAbonador').value;
+            const ufAbonador = document.getElementById('ufAbonador').value;
+            const tellFixoAbonador = document.getElementById('tellFixoAbonador').value;
+            const tellCelularAbonador = document.getElementById('tellCelularAbonador').value;
+            const emailAbonador = document.getElementById('emailAbonador').value;
+
+            // MOTIVO DE CONCESSÃO
+
+            const motivoConcessao = document.getElementById('motivoConcessao').value;
+
+            // DEPENDENTE NUMERO UM (1)
+
+            const parentescoDependenteUm = document.getElementById('parentescoDependenteUm').value;
+            const nomeDependenteUm = document.getElementById('nomeDependenteUm').value;
+            const dataNascimentoDependenteUm = document.getElementById('dataNascimentoDependenteUm').value;
+            const cpfDependenteUm = document.getElementById('cpfDependenteUm').value;
+            const nrDependenteUm = document.getElementById('nrDependenteUm').value;
+            const orgExpDependenteUm = document.getElementById('orgExpDependenteUm').value;
+            const dataExpDependenteUm = document.getElementById('dataExpDependenteUm').value;
+
+            // DEPENDENTE NUMERO DOIS (2)
+
+            const parentescoDependenteDois = document.getElementById('parentescoDependenteDois').value;
+            const nomeDependenteDois = document.getElementById('nomeDependenteDois').value;
+            const dataNascimentoDependenteDois = document.getElementById('dataNascimentoDependenteDois').value;
+            const cpfDependenteDois = document.getElementById('cpfDependenteDois').value;
+            const nrDependenteDois = document.getElementById('nrDependenteDois').value;
+            const orgExpDependenteDois = document.getElementById('orgExpDependenteDois').value;
+            const dataExpDependenteDois = document.getElementById('dataExpDependenteDois').value;
+
+            // DEPENDENTE NUMERO TRES (3)
+
+            const parentescoDependenteTreis = document.getElementById('parentescoDependenteTreis').value;
+            const nomeDependenteTreis = document.getElementById('nomeDependenteTreis').value;
+            const dataNascimentoDependenteTreis = document.getElementById('dataNascimentoDependenteTreis').value;
+            const cpfDependenteTreis = document.getElementById('cpfDependenteTreis').value;
+            const nrDependenteTreis = document.getElementById('nrDependenteTreis').value;
+            const orgExpDependenteTreis = document.getElementById('orgExpDependenteTreis').value;
+            const dataExpDependenteTreis = document.getElementById('dataExpDependenteTreis').value;
+
+            // DEPENDENTE NUMERO QUATRO (4)
+
+            const parentescoDependenteQuatro = document.getElementById('parentescoDependenteQuatro').value;
+            const nomeDependenteQuatro = document.getElementById('nomeDependenteQuatro').value;
+            const dataNascimentoDependenteQuatro = document.getElementById('dataNascimentoDependenteQuatro').value;
+            const cpfDependenteQuatro = document.getElementById('cpfDependenteQuatro').value;
+            const nrDependenteQuatro = document.getElementById('nrDependenteQuatro').value;
+            const orgExpDependenteQuatro = document.getElementById('orgExpDependenteQuatro').value;
+            const dataExpDependenteQuatro = document.getElementById('dataExpDependenteQuatro').value;
+
+            // DEPENDENTE NUMERO CINCO (5)
+
+            const parentescoDependenteCinco = document.getElementById('parentescoDependenteCinco').value;
+            const nomeDependenteCinco = document.getElementById('nomeDependenteCinco').value;
+            const dataNascimentoDependenteCinco = document.getElementById('dataNascimentoDependenteCinco').value;
+            const cpfDependenteCinco = document.getElementById('cpfDependenteCinco').value;
+            const nrDependenteCinco = document.getElementById('nrDependenteCinco').value;
+            const orgExpDependenteCinco = document.getElementById('orgExpDependenteCinco').value;
+            const dataExpDependenteCinco = document.getElementById('dataExpDependenteCinco').value;
+
+            // Criando um novo documento PDF
+            const doc = new jsPDF();
+
+            // Adicionando a imagem em base64
+            const imageBase64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF0AAAB+CAMAAABxl+1pAAACUlBMVEX////+/vz+AAP52Xz1zgr5///8AAX51kXzxQz8//74Lwn3//z846P4zAr3lQn7BwX5Q0H/OwD5bWj0AAAAqv8ArP/x//8Asv//KgD7//v/wwAAr//4Bgf2AAv///EApv////b/zjgAtf+Rxnf2lw64GyLuAAD1o37wIAr9xKP37bn//+YApOT86qL/9bmWybgAp+/019jp6+nSOTLD0M+9KiPoOCm+uLG0q6z97PH633T11onu233xuwf40lL2jQz3oBLvOg7yaD70wZXx06X7tHjsUSPzgFb22K37oWjwRh7yqHbrsn3zklPwSC7vroryUxr607Lzp233/dzyYizuelvy6MD2ilL06NHmeETyxon5imLz7cr9vZHv1Lrtp1z0lWr6NCTziEXy/8f2/+P2cznxwnb0hzf6aCj13qbyYBX5TgDhx1nbuhfYxTDhyEf+/a/WwBXcuELUryOuukNPwbsQueUmsc+IzavG27YVvuYlt8UNs+pqyaV5wrvz8sbO4Ju+3q+jypN3ur4dpskit82z1a+90qmKxJ0opdhBs6EZrLSWxaBjtY+t0pqwzYCov1v0fY/thYH1YVzst7OKgH1JIiFeRD5aXVcuFQmJOTibNzQXCgRyPDRGKiYzODKCUE/2qqlGT0teGRmPIR58PkCdlJSDZWOwNjSmGxMBFx84EwgtJyydgILSKSCCaWLKyc1zen2FDxTvi4iZRECpaWN6S0VqDgNlT05gLCaCmpJ8RzX6LEHRu72sZnCHAACzj4zlkqG+BwezfYGDBwivX2VByrWVAAAQKklEQVRoge2a/UMTV7rHJ3FOzBDjpEwyNCYTAhdysyQqmSRDtIYXda3S1sVi0W3T7WZ7vfeWLt3u9QK6sERbQGPZ7q681CagYEJeVo2UrWh6y9Wr9P+6zzkJgbxhUH/so0zm5cznPPM9z5zzzJyhqJ/tZ3shazr4xqEdr84ONeXR93qV9Cs0ZWsefZfS2wC2+1VYW1u7cme+73SDwLJGwUgM/+Q2jBsreFUw5u+GckJ+IcHYUUDfRTfAXlaAknIFqzAaFQqjoIA1+GUVLGwS26gY+2KEsrgIlGfhH95SKORQW4e6iA5glmPl+Meo4Di5HKiwrWBZ+FFwmMIZBQ6jOI5jjRa5YMFkDh/l5HAQtuRwGseWoiu4w0eO/vKYRQ5nvnn0+IkOTt751r+CvX3M8s7bZOVk5y9PWI2Kk786YWVP7up6E+9864RRYT1x9NSJDiCzcvbNtzoK6UT3d3lGhbpPc6zlfYRUqKmDO21mEOLRB+w+xIDx71l60AmOPYretcg/MHWcYhjE8/s4y1FkMvPHqzhwnj3F+KuK6dxhk+nM4SN8j5X7gDn768M96H32pP74O2c+OHGS67G9++aZM2c6jafNZ6tOq3xWjv3wN5ZTpo/OvPPbc9yv9b84droH/ZYzgjK/KEXfzX2IfsdxVU0fd3IB8zGO6+zey55ERzhOAVKe7a4C/eXQou+jj47zv5MruKZfccf/rQrah2PfQuc47vTH70ILlKG3WX02K2fkOv3GTnQKrlHotHInVUDnYG9PdxcEhQBh1GlSoeMstG33e0DvgKOC4j2+51yHxYKjrAy9ocvc89rrxM6htzMrr/+nvufIkSMfVb3Wo+8B24UL/Dtv+g98qPtc1Sf6ox8eeb/39a59DPr4yLEqcs4R1PVp4d2k9P4e7err+6zvs8/6/sC8AWtg5/9g5uHg53/s6+FNNpvtc7y7FZn6zvf1/d53/o97kZ6iTDvP9/1Xk4+iuuvwSX2f6D877y2g7/nvfp+vf2BgYHBw+ILp4tifBv40NDD85+6eqyMjIwNDAduFoaH+/rGBgWsBSn9paHjwctPgWE/giy9HLgwND48O9n8RoC6NDQ8PD1209ffvKaKP+XxDOt3w1+ODX3YHgvW6sUv7g2O2i8FasKAvMKTVGQzaevtlau9Z20ht8OIl7UCg+ytydOLKmNbeb/MNXbhqH3YFBsb21BXS7ePm8WBwxBboH22yXbUHr5r2jQ3ZLg5rdbra4NnANftwcNhe0x+w/WVC3zQ6GthfOxjo7q/VaWtHPzdNBJu/DJy91rRvdPRi99hgMb25P2D6en+P+WLQPmHzjU/4TF+APxcHtFoD0E1XxsfHL48EL5uv2Id8ppHBz/u1wQxd1zxhs43v95kufeWTXR43NQVL+F5vn+g2m237vmquH7vSbTbZLg3q/hwIjMLptaP7zCYw2+W/BAL9BvvXtqa/7hvSjjZ93F9r0OkMY5fImf3NFwJmWeBq7VfF9GFd88j4xf2D9Xa7Yfjq+OULgwbD2MSI3aDVaoP7L+zHdu3axP6goWb06sRfLw80By9MjNVqDTp7zdjE+NcTY812+8iV8Wt2XQl6M5g9aNfZa5sNuubhYTtQdc3a+ubaWm2t1g5HdVCTvVlbW29ohuPNZBdcGW6Y5mF7c61WCy0c1GprStB1cIk1OkM9OQGut6YGl66HJdRSX19jgKNag8FQq4VDBkM9FNHWkKPQMjU1cBBXVGPQ1RuGiuh9//Lq7G/ewv5992sVGL7TKyj16Z4iusAqyhseDuUc5//73wXoM7coiPsx+euF46p6txHvL3MG9I8wLvivizxyVFuhJ8bDa3l6VTEd981lDOjg9/UDCMkYnndUC5wc+t2yxbdJx5pgvymKMctgLPxNtZVTvBo6YIjfDNLLZBQlU1EIgT4CkfHl6CCJAtgOxOBSTKYww1AI9LFwOL9iX4IODSpcd4AYDMorr2eQyjFpwUnMi9JhB9Ybsg9GRuWbTK/C+kzirOoF6HhclrPWagcPosj0hEgWxEAbSgZ/aGoSsjAITnZ7dAXEILAhVcJNSS21iFmnc4a3EC+b0oA+FmGbymA2z2eR0zPpbzzFdJkZ+MyCxsIpKqdnNYHkTibTA0W88W0oHJrx4GiB7U0VIBw+CC1oOJIoP5+uwBmu9bqDZ7Lxh6jvZufSc3M3b7nw/bQJLltva8RPaSBngzT7OXRoH4VQfRYcykW37Fba6QyDhebjMZeqUHscQIhXgf/c+uWX950TSFsymTghJ9+ecfqdTkkjSalkOO4RN/jrLQ3xyWD+VsrALS/PxiC1OcJjs2nsejrilqCC6OK9JQT+MhvK4BqgTUTMx06WoWf81jN5x6iWb2+GJM3c3dv3V25G/P5UCi6A2ax7Tn4E8VmeXg3hTRUaI95Nh53R0MwShVyPoim/Hy4gBvdYQVEcQzyvKau7ohp68A3B1+lU7M5cKJS+jaNT75lPOMNOf8gFR1yxmAiarNcCEYy2oMurUYEoxCUZNT0TiXyzRFYp10xoJuFPrYjoRsSdXBE3X4OMUW2fLqM807Elcu3i9JxTE3L7JXf8xmxY8idj1Oa2fSE6EUsPyojzSUlyhyB2NJHwTBquIf5y9ExwU6QOcSWl8UuhhCQ5I3fD6cWwlJx+OWU2bk09/wgkkVIhpyQlbv5jNnInEo2/pO6bbszpJMAlKZzwSxpn+m78xqMYomSvgg7yukIELrnxPet3x0Rmo9N5WTrFTLszdNzjQB338i/spegMJd5KZuDOBF6m5lFxb7lduj53ektkJqwhmoTxUiI30kvRGSZ3Ph9POdMJySn5E+nFuZlw6j6T301un45PZvQkLjxRokkyvTgtiq50JOKhzC9Jp8QnT0TiorgCrakJOd3f4ezAlXTeXKKKOuHn0CnxO5EhUuv1OG0U50OROFaAckVJoIQW8dBELUUzvSRRDy1AKkh6i+fRW75tyeSLMPaZ9cyzSEtLBDtJeRI4HDWJG0hG6vKHRKKbWc9POTUaB8Ijw/PoT5afMNR6OkCh+GL8/iKhu8Ik2P2JGPbdFZZWeAq7q0IL0j8XqqWpSuiuO98/AIs/IBZfCaUj80QLFM/eS1EXpt+MxhGhoynJQVIax/OVYdB01N3YmCKcVColacLp1UyRpRVyM+E4B53uJOYzOSCq/id+akCT1yuIGUrV4vHEwtlbHlgP43j8x96L07hzBG2mIU1olOIMoR+YnEIYuzBZAZ1EGBOLZulSaNqDsskvRf0wQ3oYiJZYyp3t2B2TDkQEmmQqoJOBgopF/WAgsofK9t/4gOr2Q7gayX2fiaWiLVTW93U6quBuynZZsVAinEiEAJ5NEcjYFItEnf5OKdriSYXEnO8MJK+oImUydD2EnNvtdmIHN+gQKt+H026/33njm9T8Ol0zdQBMrIyewYiPoo2JRDL6SFwvQerkbzxMpMOaxGw6FUcZun7yRw026XolymRZLteSC2xJzDmOBZuOSv4QZMSLM6GW7E7VAUfGxIp8L2XZPrzlIWSREJb+0N3ZdbpMhRuVgexTX7nveMHkeoQM3DWX8kthGDrcd2dnl9bp+k0Jazk63WB8ju/U0qLTL0XTKX9q3nU7tmm4zvWoL0qHq/ZEYMxb/GGeZHf5Dzgb9bwYHboBuH2jcZcInQTu2YvhW9PL5wRwkmcxoUnNeRAeNlJxRl8KvRV9q4yDEkFt97wrkzElPZSsyPeXoMtwohR2kXr+B68w26VvoQxOfkPSIk8G2hAelLZLV7eXbVWSh30PauONWNIfjrmofG02imK6Ql40Z6P2lqfDnxgiYUgxK5Jf44aMhip+KM75rviUzqc3Kffg+ZaSzx6UiuddszddPLZYKBRKRGb/8QPPlKd30fmziD6lugo/UZbyvWV+fn5lJj2fsbn0zMzNGdiEsUlfks4JvQW+y1rpT8v4jqWWpJNSgaVWEFWabhR20wfzEW/QveV0hxG6lM0zZXxXGL10/uwtBE2DUIbuiYQj6ZX5xcW5UDodCi2CTpFQODJNldadNVYp62z5CJ/aa5WzJVt1Oj0XST/yiOKN9K1b6Ru8a3olkk6ny9IVXepWcz5Dv1PdxZb0XVy5c6vl3mJk8d6tO/dX7nzzIBRZjLXcvVNOGQW3mz5UCNlBtxlLK3MvMs1Qrtj8w4fpFs8i5MQeuFnjkVgZ3+VWrzJQyGiivVaupDKih2S7vMsD96irxYWLMGKLavND9mZ6F11nKjxgrqO7StK3YzJGr+GK4hHbIbq9cnqx29nd+h+rlEpf8ZGzXrpqEpEBvuCIKOJdMHZmnsKyrxFFSpVfDB5RIJ39sbegG8gatGs1fufL5L/1RauJxCp+yZwZlnHl0PU8SSYc+vw3z5l324e9yp5SdJ/Xe3oKMUWPff/7+PGzTQhStf6nx4+fUAXvtfGL2/9rU7eWlm2Hus0yifn5T3KrTxufiEurqyIlrq4uwTasLj17mhLzz8Yz6Asaq9db0AusG4RNL4v5SEVeUOfoqcdPniWXV8XVaPInUXyQjC49S7qdjo3LM8tUPINf2HLtpVXHthfHPObziNnQZ9WdSrob3anGRlikMgt3MtXoWI8cEAs/OTktnLGXpm1l4JRsp7pNMHKcBWf8OfyTZBKepZKNbneyMWPup+5kMrmaOw8uFr9oNgpWL723HBzPUdO9+EMLuRXrk5Gfube2/Hh5eW15ObocXYuuJZfX1tai0eW1GJnCwSVAb06hUAjCFrpga1LSHQL5+AP7T/JaRpZYa0wuN0aTyTW4imTjcmMSkvvkA6icMa+/4GflckFoo5VldSF2SK204pkeVkFeN+MAFxMgAxaFKEP0wf8fMPAkTPHYb/x2HAaNXlpZJl5y1godPTiC5zJYzEfoJ2hToIHwuBJMT7qhlZNL8LTPg98cmZaTVwKnzK20t0rACQKeqwK+GH6KfYfnnKdJEOTp08YEVAU/qxR+qYxnVRT4Y5peWr1Fi66bCfDW7Kt+uZyzVDuWpqYWVkVxamFKPIAXKsfUAvxk2NiMgqJCOMarlR3ZOQZBYPFUGZN7GiFLHK3M1KSFY8lUGaswWtpo765K4ADaoaZ7BY6EDpmrIFMsehJ8FP6BxgA2/igFT6awnMLaUIHmOXtDTe+24q+KspM4CgFPKWTeBpOX+JMcZsuzjnd56Z1bh2K+9dSpvV2CcX0eB/zLTBExOAaBnZtBgYqtbTR9sGis29JMB9V0eweeosWhYzTKWTIFBX3V1KTA4Q+oCB3u/l4vXVeh5JusqY5Wt3WQb63YTHyy1usOB7CJYvgTKw7Y7bTy4HZUWTfzXppWt3fhj81IcOKPtazZGGRxiAtV4LeyteRQVIGZ3lDStLetKztJSKaMWCI47g97G5S0uvWTwmmS7fi/aydcgLeht6NKyJnf39Xb1q7EH/s1lUkOKjbfjp34q0Glt70hY+1epRpXufPQ9gKl3AX4du1orVPnvk9UK+tad+zzmV8FO2MyU8+hgzvriLXutb1C8s/2s222/weuK3tVQuYhJgAAAABJRU5ErkJggg==';
+            doc.addImage(imageBase64, 'PNG', 10, 10, 25, 25);  // Adiciona a imagem na posição x=10, y=10 com largura=50 e altura=50
+
+            // Adicionando o título
+            doc.setFontSize(18);
+            doc.text('CENTRO DE CAPACITAÇÃO FÍSICA DO EXÉRCITO', 40, 15);  // Título posicionado ao lado da imagem
+            doc.setFontSize(18);
+            doc.text('FORTALEZA DE SÃO JOÃO', 65, 25);  // Título posicionado ao lado da imagem
+            doc.setFontSize(18);
+            doc.text('NR DE CONTROLE:_______', 65, 35);  // Título posicionado ao lado da imagem
+            doc.setFontSize(18);
+            doc.text('FICHA DE CADASTRO DE PERMISSIONÁRIO - TITULAR', 20, 45);  // Título posicionado ao lado da imagem
+      
+
+ // Adicionando os dados no PDF
+doc.setFontSize(12);
+const startY = 60;
+let offsetX = 10; // Posição inicial x para as respostas
+let offsetY = 10; // Posição inicial y para as respostas
+
+
+            doc.line(10, 57, 200, 57);
+            doc.text('INFORMÇÕES DO PERMISSIONARIO', 65, 63);  // Título posicionado ao lado da imagem
+            doc.line(10, 65, 200, 65);
+            offsetY += 1;
+
+// Adicionando os dados na mesma linha
+doc.text(`PERMISSÃO: ${permissao}`, offsetX, startY + offsetY);
+
+offsetY += 5;
+
+doc.text(`NOME DO TITULAR: ${nomeTitular}`, offsetX, startY + offsetY);
+
+offsetY += 5;
+
+doc.text(`DATA DE NASCIMENTO: ${dataNascimento}`, offsetX, startY + offsetY);
+doc.text(`ESTADO CIVIL: ${estadoCivil}`, offsetX + 78 , startY + offsetY);
+doc.text(`CPF: ${cpf}`, offsetX + 149, startY + offsetY);
+
+// Atualizando a posição y para a próxima linha
+offsetY += 5;
+
+// Adicionando os dados restantes
+
+doc.text(`MILITAR: ${militar}`, offsetX + 0, startY + offsetY);
+doc.text(`POSTO/GRAD: ${postoGradTitular}`, offsetX + 45, startY + offsetY);
+doc.text(`FORÇA: ${forca}`, offsetX + 125, startY + offsetY);
+// Atualizando a posição y para a próxima linha
+offsetY += 5;
+
+// Adicionando os últimos dados
+
+doc.text(`NR IDENTIDADE: ${nrIdentidade}`, offsetX, startY + offsetY);
+doc.text(`ÓRG EXP: ${orgExp}`, offsetX + 80, startY + offsetY);
+doc.text(`DATA EXP: ${dataExp}`, offsetX + 145, startY + offsetY);
+// Atualizando a posição y para a próxima linha
+offsetY += 5;
+
+// Adicionando os últimos dados
+
+
+
+
+// ENDEREÇO RESIDENCIAL
+
+doc.line(10, 94, 200, 94);
+            doc.text('ENDEREÇO RESIDENCIAL', 75, 99);  // Título posicionado ao lado da imagem
+            doc.line(10, 101, 200, 101);
+            offsetY += 11;
+
+doc.text(`LOGRADOURO: ${logradouroResidencial}` ,offsetX, startY + offsetY);
+doc.text(`NR: ${nrResidencial}` , offsetX + 75, startY + offsetY);
+doc.text(`COMPLEMENTO: ${complementoResidencial}` , offsetX + 100, startY + offsetY);
+offsetY += 5;
+doc.text(`BAIRRO: ${bairroResidencial}` ,offsetX, startY + offsetY);
+doc.text(`CIDADE: ${cidadeResidencial}` , offsetX + 65, startY + offsetY);
+doc.text(`UF: ${ufResidencial}` , offsetX + 120, startY + offsetY);
+offsetY += 5;
+doc.text(`TEL. FIXO: ${tellFixoResidencial}` ,offsetX, startY + offsetY);
+doc.text(`TEL. CELULAR C/DDD: ${tellCelularResidencial}` , offsetX + 111, startY + offsetY);
+offsetY += 5;
+doc.text(`E-MAIL: ${emailResidencial}` , offsetX, startY + offsetY);
+
+
+// ENDEREÇO COMERCIAL
+
+            doc.line(10, 124, 200, 124);
+            doc.text('ENDEREÇO COMERCIAL', 75, 129);  // Título posicionado ao lado da imagem
+            doc.line(10, 131, 200, 131);
+            offsetY += 15;
+
+doc.text(`NOME DA EMPRESA: ${nomeEmpresaComercial}` ,offsetX, startY + offsetY);
+offsetY += 5;
+doc.text(`LOGRADOURO: ${logradouroComercial}` ,offsetX, startY + offsetY);
+doc.text(`NR: ${nrComercial}` , offsetX + 75, startY + offsetY);
+doc.text(`COMPLEMENTO: ${complementoComercial}` , offsetX + 100, startY + offsetY);
+offsetY += 5;
+doc.text(`BAIRRO: ${bairroComercial}` ,offsetX, startY + offsetY);
+doc.text(`CIDADE: ${cidadeComercial}` , offsetX + 75, startY + offsetY);
+doc.text(`UF: ${ufComercial}` , offsetX + 160, startY + offsetY);
+offsetY += 5;
+doc.text(`TEL. FIXO: ${tellFixoComercial}` ,offsetX, startY + offsetY);
+doc.text(`TEL. CELULAR C/DDD: ${tellCelularComercial}` , offsetX + 50, startY + offsetY);
+offsetY += 5;
+doc.text(`E-MAIL: ${emailComercial}` , offsetX, startY + offsetY);
+
+// INFORMAÇÕES DO ABONADOR
+
+doc.line(10, 160, 200, 160); // Desenha uma linha horizontal de (10, 57) a (200, 57)
+            doc.text('INFORMAÇÕES DO ABONADOR', 75, 165);  // Título posicionado ao lado da imagem
+            doc.line(10, 167, 200, 167); // Desenha uma linha horizontal de (10, 57) a (200, 57)
+            offsetY += 16;
+
+            doc.text(`NOME DO ABONADOR: ${nomeAbonador}` ,offsetX, startY + offsetY);
+            offsetY += 5;
+            doc.text(`POST/GRAD: ${postoGradAbonador}` , offsetX, startY + offsetY);
+            doc.text(`OM: ${omAbonador}` , offsetX + 120, startY + offsetY);
+
+// ENDEREÇO RESIDENCIAL ABONADOR
+
+doc.line(10, 181, 200, 181); // Desenha uma linha horizontal de (10, 57) a (200, 57)
+            doc.text('ENDEREÇO RESIDENCIAL', 75, 186);  // Título posicionado ao lado da imagem
+            doc.line(10, 188, 200, 188); // Desenha uma linha horizontal de (10, 57) a (200, 57)
+            offsetY += 16;
+
+doc.text(`LOGRADOURO: ${logradouroAbonador}` ,offsetX, startY + offsetY);
+doc.text(`NR: ${nrAbonador}` , offsetX + 75, startY + offsetY);
+doc.text(`COMPLEMENTO: ${complementoAbonador}` , offsetX + 100, startY + offsetY);
+offsetY += 5;
+doc.text(`BAIRRO: ${bairroAbonador}` ,offsetX, startY + offsetY);
+doc.text(`UF: ${ufAbonador}` , offsetX + 85, startY + offsetY);
+doc.text(`CIDADE: ${cidadeAbonador}` , offsetX + 105, startY + offsetY);
+offsetY += 5;
+doc.text(`TEL. FIXO: ${tellFixoAbonador}` ,offsetX, startY + offsetY);
+doc.text(`TEL. CELULAR C/DDD: ${tellCelularAbonador}` , offsetX + 45, startY + offsetY);
+offsetY += 5;
+doc.text(`E-MAIL: ${emailAbonador}` , offsetX, startY + offsetY);
+offsetY += 10;
+
+doc.line(10, 212, 200, 212);
+
+// MOTIVO DE CONCESSÃO
+
+doc.text(`MOTIVO DA CONCESSÃO: ${motivoConcessao}` , offsetX, startY + offsetY);
+offsetY += 5;
+
+doc.line(140, 235, 70, 235);
+doc.text('ASSINATURA DO ABONADOR', 75, 240);
+
+doc.text('PARECER DO CHEFE DO CCFEX', 10, 255);
+doc.line(190, 255, 80, 255);
+
+doc.line(140, 275, 70, 275);
+doc.text('ASSINATURA DO ABONADOR', 75, 280);
+
+//PAGINA  DOIS (2)
+
+doc.addPage();
+
+// Informações do Dependente  NUMERO UM (1)
+doc.line(10, 5, 200, 5);
+doc.text('DADOS DO DEPENDENTE 1', 75, 10);
+doc.line(10, 12, 200, 12);
+offsetY += 8;
+
+doc.text(`NOME: ${nomeDependenteUm}`, offsetX, startY + -215 + offsetY);
+
+offsetY += 5;
+doc.text(`PARENTESCO: ${parentescoDependenteUm}`, offsetX, startY + -215 + offsetY);
+doc.text(`DATA NASC: ${dataNascimentoDependenteUm}`, offsetX + 70 , startY  + -215 + offsetY);
+doc.text(`CPF: ${cpfDependenteUm}`, offsetX + 150 , startY  + -215 + offsetY);
+offsetY += 5; // Espaço entre as linhas de texto
+doc.text(`NR IDENTIDADE: ${nrDependenteUm}`, offsetX, startY + -215 + offsetY);
+doc.text(`ORG EXP: ${orgExpDependenteUm}`, offsetX + 74, startY + -215 + offsetY);
+doc.text(`DATA EXP: ${dataExpDependenteUm}`, offsetX + 145.5, startY + -215 + offsetY);
+offsetY += 13;
+
+// Informações do Dependente  NUMERO DOIS(2)
+doc.line(10, 29, 200, 29);
+doc.text('DADOS DO DEPENDENTE 2', 75, 34);
+doc.line(10, 35, 200, 35);
+
+
+doc.text(`NOME: ${nomeDependenteDois}`, offsetX , startY + -215 + offsetY);
+offsetY += 5;
+doc.text(`PARENTESCO: ${parentescoDependenteDois}`, offsetX, startY + -215 + offsetY);
+doc.text(`DATA NASC: ${dataNascimentoDependenteDois}`, offsetX + 70 , startY  + -215 + offsetY);
+doc.text(`CPF: ${cpfDependenteDois}`, offsetX + 150 , startY  + -215 + offsetY);
+offsetY += 5; // Espaço entre as linhas de texto
+doc.text(`NR IDENTIDADE: ${nrDependenteDois}`, offsetX, startY + -215 + offsetY);
+doc.text(`ORG EXP: ${orgExpDependenteDois}`, offsetX + 74, startY + -215 + offsetY);
+doc.text(`DATA EXP: ${dataExpDependenteDois}`, offsetX + 145.5, startY + -215 + offsetY);
+offsetY += 10;
+
+// Informações do Dependente  NUMERO TRES (3)
+doc.line(10, 54, 200, 54);
+doc.text('DADOS DO DEPENDENTE 3', 75, 59);
+doc.line(10, 60, 200, 60);
+offsetY += 5;
+
+
+doc.text(`NOME: ${nomeDependenteTreis}`, offsetX, startY + -215 + offsetY);
+offsetY += 5;
+doc.text(`PARENTESCO: ${parentescoDependenteTreis}`, offsetX, startY + -215 + offsetY);
+doc.text(`DATA NASC: ${dataNascimentoDependenteTreis}`, offsetX + 70  , startY  + -215 + offsetY);
+doc.text(`CPF: ${cpfDependenteTreis}`, offsetX + 150 , startY  + -215 + offsetY);
+offsetY += 5; // Espaço entre as linhas de texto
+doc.text(`NR IDENTIDADE: ${nrDependenteTreis}`, offsetX, startY + -215 + offsetY);
+doc.text(`ORG EXP: ${orgExpDependenteTreis}`, offsetX + 74, startY + -215 + offsetY);
+doc.text(`DATA EXP: ${dataExpDependenteTreis}`, offsetX + 145.5, startY + -215 + offsetY);
+
+// Informações do Dependente  NUMERO QUATRO (4)
+
+doc.line(10, 79, 200, 79);
+doc.text('DADOS DO DEPENDENTE 4', 75, 84);
+doc.line(10, 85, 200, 85);
+offsetY += 15;
+
+doc.text(`NOME: ${nomeDependenteQuatro}`, offsetX, startY + -215 + offsetY);
+offsetY += 5;
+doc.text(`PARENTESCO: ${parentescoDependenteQuatro}`, offsetX, startY + -215 + offsetY);
+doc.text(`DATA NASC: ${dataNascimentoDependenteQuatro}`, offsetX + 70 , startY  + -215 + offsetY);
+doc.text(`CPF: ${cpfDependenteQuatro}`, offsetX + 150 , startY  + -215 + offsetY);
+offsetY += 5; // Espaço entre as linhas de texto
+doc.text(`NR IDENTIDADE: ${nrDependenteQuatro}`, offsetX, startY + -215 + offsetY);
+doc.text(`ORG EXP: ${orgExpDependenteQuatro}`, offsetX + 74, startY + -215 + offsetY);
+doc.text(`DATA EXP: ${dataExpDependenteQuatro}`, offsetX + 145.5, startY + -215 + offsetY);
+
+// Informações do Dependente  NUMERO CINCO (5)
+
+doc.line(10, 104, 200, 104);
+doc.text('DADOS DO DEPENDENTE 5', 75, 109);
+doc.line(10, 110, 200, 110);
+offsetY += 15;
+
+doc.text(`NOME: ${nomeDependenteCinco}`, offsetX, startY + -215 + offsetY);
+offsetY += 5;
+doc.text(`PARENTESCO: ${parentescoDependenteCinco}`, offsetX, startY + -215 + offsetY);
+doc.text(`DATA NASC: ${dataNascimentoDependenteCinco}`, offsetX + 70  , startY  + -215 + offsetY);
+doc.text(`CPF: ${cpfDependenteCinco}`, offsetX + 150 , startY  + -215 + offsetY);
+offsetY += 5; // Espaço entre as linhas de texto
+doc.text(`NR IDENTIDADE: ${nrDependenteCinco}`, offsetX, startY + -215 + offsetY);
+doc.text(`ORG EXP: ${orgExpDependenteCinco}`, offsetX + 74, startY + -215 + offsetY);
+doc.text(`DATA EXP: ${dataExpDependenteCinco}`, offsetX + 145.5, startY + -215 + offsetY);
+offsetY += 15;
+
+doc.line(10, 130, 200, 130);
+
+//OBSERVAÇÕES
+
+doc.text('OBSERVAÇÕES:', 10, startY - 215 + offsetY);
+offsetY += 10;
+doc.text('1. Não serão aceitas fichas com documentação pendente.', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('2. O abonador deve ser um militar que sirva no CCFEx ou em suas Organizações Militares', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('    Diretamente Subordinadas.', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('3. São dependente do permissioário, para fins de concessão da permissão', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('    de dependente: conjugue e filhos até 24 anos se estudante.', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('4. Dependentes de 0 a 7 anos de idade e 11 meses, não pagam.', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('    A partir dos 8 anos de idade, será cobrado 50% do valor da permissão para cada dependente.', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('5. Para cadastro é necessário a apresentação do seguinte:', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('    - Original e cópia dos documentos de identidade do titular e dependentes.', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('    - 02 (duas) fotos 3X4 (original e recente) do titular e dependentes', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('    (tanto para inclusão quando para renovação).', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('    - Cópia do comprovante de residência do titular.', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('    - Documento que justifique a concessão de carteira de dependente (certidão de casamento e  ', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('    documentos dos filhos).', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('6. O pagamento da GRU, referente á permissão de uso, somente deve ser realizada após o titular', 10, startY - 215 + offsetY);
+offsetY += 5;
+doc.text('    receber um e-mail institucional, confirmando o deferimento da concessão.', 10, startY - 215 + offsetY);
+
+offsetY += 10; // Adicionar espaço extra após as observações
+
+            // Salvando o PDF
+            doc.save('FICHA_DE_CADASTRO_DE_PERMISSIONÁRIO_-_TITULAR.pdf');
+        }
+
+
+$(document).ready(function(){
+
+	//Telefone Fixo
+    $('#tellFixoResidencial').mask('9999-9999');
+    $('#tellFixoComercial').mask('9999-9999');
+    $('#tellFixoAbonador').mask('9999-9999');
+
+	//Telefone Celular
+
+	  $("#tellCelularResidencial").mask("(99) 99999-9999");	
+    $("#tellCelularComercial").mask("(99) 99999-9999");
+    $("#tellCelularAbonador").mask("(99) 99999-9999");
+
+	//RG Identidade
+
+    $("#nrIdentidade").mask("99.999.999-9");
+    $("#nrDependenteUm").mask("99.999.999-9");
+    $("#nrDependenteDois").mask("99.999.999-9");
+    $("#nrDependenteTreis").mask("99.999.999-9");
+    $("#nrDependenteQuatro").mask("99.999.999-9");
+    $("#nrDependenteCinco").mask("99.999.999-9");
+
+	//CPF
+
+	  $("#cpf").mask("999.999.999-99");
+    $("#cpfDependenteUm").mask("999.999.999-99");
+    $("#cpfDependenteDois").mask("999.999.999-99");
+    $("#cpfDependenteTreis").mask("999.999.999-99");
+    $("#cpfDependenteQuatro").mask("999.999.999-99");
+    $("#cpfDependenteCinco").mask("999.999.999-99");
+
+});
+
+</script>
+
+</body>
+</html>
