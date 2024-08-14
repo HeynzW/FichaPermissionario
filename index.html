@@ -100,10 +100,19 @@ form .campos .input-Campo{
 .input-Campo input[type="date"]:valid{
   color: #333;
 }
-.motivoconcessao{
-  font-size: 15px;
-  font-weight: 700;
-  color: #2e2e2e;
+.input-CampoMot{
+box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+.input-Campo,.motivoconcessao{
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  padding: 0 15px;
+  height: 42px;
+  margin: 8px 0;
 }
 	    
 /* inicio select */
@@ -557,7 +566,7 @@ form .campos .input-Campo{
          </div>
          <!-- MOTIVO DA CONCESSÃO -->
 
-        <div class="input-Campo">
+        <div class="input-CampoMot">
          <label for="motivoConcessao">MOTIVO DA CONCESSÃO</label>
          <input class="motivoconcessao" type="text" id="motivoConcessao" name="motivoConcessao" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
         </div>
