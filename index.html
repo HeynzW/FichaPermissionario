@@ -70,7 +70,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
-form .campos .input-Campo{
+form .campos .input-Campo .inputt-CampoMot{
   display: flex;
   width: calc(100% / 3 - 15px);
   flex-direction: column;
@@ -100,7 +100,7 @@ form .campos .input-Campo{
 .input-Campo input[type="date"]:valid{
   color: #333;
 }
-
+.inputt-CampoMot
 .motivoconcessao{
 
 }
@@ -556,7 +556,7 @@ form .campos .input-Campo{
          </div>
          <!-- MOTIVO DA CONCESSÃO -->
 
-        <div class="input-CampoMot">
+        <div class="inputt-CampoMot">
          <label for="motivoConcessao">MOTIVO DA CONCESSÃO</label>
          <input class="motivoconcessao" type="text" id="motivoConcessao" name="motivoConcessao" oninput="this.value = this.value.toUpperCase()" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" required>
         </div>
